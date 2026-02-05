@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #ff4d6d, #ff758f, #ff1e56, #ff6f91);
+  background-size: 400% 400%;
+  animation: bgMove 6s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  background: rgba(255,255,255,0.95);
+  width: 90%;
+  max-width: 360px;
+  padding: 26px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+  color: #e63946;
+  font-size: 22px;
+}
+
+p {
+  color: #444;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.buttons {
+  margin-top: 25px;
+  position: relative;
+  height: 70px;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 12px 26px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#yes {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+#no {
+  background: #eee;
+  color: #333;
+  position: absolute;
+  right: 0;
+  animation: shake 1.2s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+.fadeUp {
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.scroll-box {
+  max-height: 55vh;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.scroll-box::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  background: rgba(255, 65, 108, 0.6);
+  border-radius: 10px;
+}
+
+.scroll-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #e63946;
+  animation: hint 1.5s infinite;
+}
+
+@keyframes hint {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.heart {
+  position: absolute;
+  font-size: 22px;
+  animation: float 4s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="box">
+  <h1>Will you be my Valentine? ❤️</h1>
+  <p id="text">Be honest… but be gentle with my heart 😉</p>
+
+  <div class="buttons">
+    <button id="yes" onclick="yesClick()">YES ❤️</button>
+    <button id="no" onclick="noClick()">NO 🙈</button>
+  </div>
+</div>
+
+<script>
+let noCount = 0;
+const noTexts = [
+  "Are you sure? 😢",
+  "Think again… 🥺",
+  "That feels a little cruel 💔",
+  "Still no? 😌",
+  "Okay… now you’re teasing 😉"
+];
+
+function noClick() {
+  const noBtn = document.getElementById("no");
+  const box = document.querySelector(".card");
+
+  document.getElementById("text").innerText =
+    noTexts[Math.min(noCount, noTexts.length - 1)];
+
+  const x = Math.random() * (box.offsetWidth - 90);
+  const y = Math.random() * 40;
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  document.getElementById("yes").style.transform =
+    `scale(${1 + noCount * 0.15})`;
+
+  noCount++;
+}
+
+function yesClick() {
+  document.getElementById("box").innerHTML = `
+    <div class="fadeUp">
+      <h1>Happy Valentine’s Day ❤️</h1>
+
+      <div class="scroll-box">
+        <p>
+          From the very first moment you became a part of my world,
+          something inside me felt calm, warm, and certain.
+          It wasn’t loud or sudden — it was soft,
+          like my heart quietly recognizing where it belongs.
+
+          This isn’t about one question or one special day.
+          It’s about every small moment that feels lighter
+          when you’re around.
+          The way conversations flow,
+          the comfort of silence,
+          and the happiness hidden in ordinary seconds —
+          all of it feels better with you.
+
+          Loving you doesn’t feel like effort.
+          It feels natural, gentle, and real.
+          I choose you in the simple days
+          and in the complicated ones,
+          in laughter and in quiet understanding,
+          again and again, without hesitation.
+
+          And today, when you said YES,
+          it felt like more than an answer.
+          It felt like reassurance,
+          like warmth,
+          like a soft promise whispered without words.
+
+          No matter where life leads us,
+          this moment will always stay close to my heart —
+          because it’s the moment I felt chosen,
+          and the moment I knew
+          that choosing you
+          will always be my favorite decision. ❤️
+        </p>
+      </div>
+
+      <div class="scroll-hint">↓ scroll down slowly</div>
+    </div>
+  `;
+
+  for (let i = 0; i < 30; i++) {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (Math.random() * 2 + 3) + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 4000);
+  }
+}
+</script>
+
+</body>
+</html>
